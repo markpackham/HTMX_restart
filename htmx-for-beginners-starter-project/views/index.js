@@ -16,7 +16,11 @@ const createHomepageTemplate = () => /*html*/ `
 
       <main>
         <div class="book-list">
-          <button hx-get="/books">Show Books</button>
+          <!-- using hx-swap="outerHTML" rather than the default innerHTML, the entire element gets replaced rather than just "Show Button" -->
+          <!-- <button hx-get="/books" hx-swap="outerHTML">Show Books</button> -->
+
+          <!-- Find target and inject right before end of target via hx-swap="beforeend" so we don't replace everything before </div> -->
+          <button hx-get="/books" hx-swap="beforeend" hx-target=".book-list">Show Books</button>
         </div>
 
         <div class="add-book-form">
