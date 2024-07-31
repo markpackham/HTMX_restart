@@ -30,12 +30,25 @@ const createHomepageTemplate = () => /*html*/ `
           <!--  innerHTML is the default so we don't need to actually include hx-swap="innerHTML"
           <button hx-get="/books" hx-swap="innerHTML" hx-target=".book-list">Show Books afterend</button> -->
           <button hx-get="/books" hx-target=".book-list">Show Books</button>
-
         </div>
 
         <div class="add-book-form">
           <h2>What do you want to read?</h2>
-          <!-- form template here later -->
+          
+          <form>
+
+            <input type="text"
+            name="title"
+            placeholder="title"
+            >
+
+            <input type="text"
+            name="author"
+            placeholder="author"
+            >
+
+            <button>Add Book</button>
+          </form>
         </div>
       </main>
     </body>
