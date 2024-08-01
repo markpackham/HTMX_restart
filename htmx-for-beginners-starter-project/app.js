@@ -37,6 +37,19 @@ app.get("/books/:id", (req, res) => {
   res.send(createBookTemplate(book));
 });
 
+app.delete("/books/:id", (req, res) => {
+  const id = req.params.id;
+  // Book index
+  const indx = BOOKS_DATA.findIndex((b) => b.id === id);
+  // Remove 1
+  BOOKS_DATA.splice(indx, 1);
+
+  // htmx demands for us to send a response
+  // it is fine if we send an empty response
+  // we want to replace the inner html of the Delete button with nothing
+  res.send();
+});
+
 // listen to port
 app.listen(3000, () => {
   console.log("App listening on port 3000");
