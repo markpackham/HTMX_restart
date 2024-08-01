@@ -51,11 +51,13 @@ const createHomepageTemplate = () => /*html*/ `
             <input type="text"
             name="title"
             placeholder="title"
+            required
             >
 
             <input type="text"
             name="author"
             placeholder="author"
+            required
             >
 
             <!-- We can use a double colon "::"" instead of :htmx: for htmx events -->
