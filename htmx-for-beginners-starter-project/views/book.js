@@ -4,7 +4,8 @@ const createBookTemplate = (book) => /*html*/ `
         <h3>${book.title}</h3>
         <p>${book.author}</p>
     </div>
-    <button hx-delete="/books/${book.id}">Delete</button>
+    <!-- Make sure outer html gets deleted or we'd still have a blank <li> left-->
+    <button hx-delete="/books/${book.id}" hx-target="closest li" hx-swap="outerHTML">Delete</button>
 </li>
 `;
 
