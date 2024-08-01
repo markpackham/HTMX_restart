@@ -47,7 +47,9 @@ const createHomepageTemplate = () => /*html*/ `
             placeholder="author"
             >
 
-            <button hx-post="/books" hx-target=".book-list ul" hx-swap="beforeend">Add Book</button>
+            <button 
+            hx-on:click="console.log('new book added', event)"
+            hx-post="/books" hx-target=".book-list ul" hx-swap="beforeend">Add Book</button>
           </form>
         </div>
       </main>
