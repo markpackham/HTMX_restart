@@ -47,7 +47,7 @@ const createHomepageTemplate = () => /*html*/ `
             placeholder="author"
             >
 
-            <button>Add Book</button>
+            <button hx-post="/books">Add Book</button>
           </form>
         </div>
       </main>
