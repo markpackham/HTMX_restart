@@ -47,9 +47,16 @@ const createHomepageTemplate = () => /*html*/ `
             placeholder="author"
             >
 
-            <button 
+
+            <!-- We can use a double colon "::"" instead of :htmx: for htmx events -->
+            <!-- hx-on:htmx:after-request=""  -->
+            <button
+            hx-on::after-request="document.querySelector('form').reset()" 
+
             hx-on:click="console.log('new book added', event)"
-            hx-post="/books" hx-target=".book-list ul" hx-swap="beforeend">Add Book</button>
+            hx-post="/books" 
+            hx-target=".book-list ul" 
+            hx-swap="beforeend">Add Book</button>
           </form>
         </div>
       </main>
