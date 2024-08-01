@@ -29,13 +29,24 @@ const createHomepageTemplate = () => /*html*/ `
 
           <!--  innerHTML is the default so we don't need to actually include hx-swap="innerHTML"
           <button hx-get="/books" hx-swap="innerHTML" hx-target=".book-list">Show Books afterend</button> -->
-          <button hx-get="/books" hx-target=".book-list">Show Books</button>
+
+          <!-- If we add hx-trigger="dblclick" then only double clicks will work for the button -->
+          <!-- <button hx-get="/books" hx-target=".book-list" hx-trigger="dblclick">Show Books</button> -->
+
+          <button hx-get="/books" 
+          hx-target=".book-list" 
+          >Show Books</button>
         </div>
 
         <div class="add-book-form">
           <h2>What do you want to read?</h2>
           
-          <form>
+          <form 
+          hx-post="/books" 
+          hx-on::after-request="document.querySelector('form').reset()" 
+          hx-target=".book-list ul"
+          hx-swap="beforeend"
+          >
 
             <input type="text"
             name="title"
@@ -47,16 +58,11 @@ const createHomepageTemplate = () => /*html*/ `
             placeholder="author"
             >
 
-
             <!-- We can use a double colon "::"" instead of :htmx: for htmx events -->
             <!-- hx-on:htmx:after-request=""  -->
             <button
-            hx-on::after-request="document.querySelector('form').reset()" 
+           >Add Book</button>
 
-            hx-on:click="console.log('new book added', event)"
-            hx-post="/books" 
-            hx-target=".book-list ul" 
-            hx-swap="beforeend">Add Book</button>
           </form>
         </div>
       </main>
