@@ -15,6 +15,20 @@ const createHomepageTemplate = () => /*html*/ `
       </header>
 
       <main>
+  <div class="search" style="text-align: center">
+
+  Post requests occur when words keyed into the field, has a delay of 300 milliseconds 
+    <input 
+    type="search" 
+    name="search"
+    placeholder="search books by title..."
+    hx-post="/books/search"
+    tx-trigger="keyup changed delay:300ms"
+    hx-target=".book-list"
+    />
+
+  </div>
+
         <div class="book-list">
           <!-- using hx-swap="outerHTML" rather than the default "innerHTML", the entire element gets replaced rather than just "Show Button" -->
           <!-- <button hx-get="/books" hx-swap="outerHTML">Show Books</button> -->
