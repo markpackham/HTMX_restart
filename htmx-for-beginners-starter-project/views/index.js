@@ -17,7 +17,7 @@ const createHomepageTemplate = () => /*html*/ `
       <main>
   <div class="search" style="text-align: center">
 
-  Post requests occur when words keyed into the field, has a delay of 300 milliseconds 
+  Post requests occur when words keyed into the field then either "Enter" hit or cursor leaves field, has a delay of 300 milliseconds 
     <input 
     type="search" 
     name="search"
