@@ -3,6 +3,7 @@ import BOOKS_DATA from "./data/data.js";
 import createHomepageTemplate from "./views/index.js";
 import createListTemplate from "./views/list.js";
 import createBookTemplate from "./views/book.js";
+import createEditFormTemplate from "./views/edit.js";
 
 // create app
 const app = express();
@@ -48,6 +49,12 @@ app.delete("/books/:id", (req, res) => {
   // it is fine if we send an empty response
   // we want to replace the inner html of the Delete button with nothing
   res.send();
+});
+
+app.get("/books/edit/:id", (req, res) => {
+  const book = BOOKS_DATA.find((b) => b.id === req.params.id);
+
+  res.send(createEditFormTemplate(book));
 });
 
 // listen to port
